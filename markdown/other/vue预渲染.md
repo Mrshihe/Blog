@@ -6,7 +6,7 @@
 
 ## 配置相关文件
 ### webpack.prod.conf.js
-`
+```
 // SPA预渲染
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
@@ -28,20 +28,20 @@ plugins:[
     })
   })
 ]
-`
+```
 ### main.js
-`
+```
 new Vue({
   ...........
   mounted () {
     document.dispatchEvent(new Event('render-event'))
   }
 })
-`
+```
 
 # 一定要注意配置文件得位置！！！ (如打包文件名为 website)
-###### webpack.base.conf.js中 publicPath: '/website/'
-###### webpack.prod.conf.js中 output{publicPath: '/'}
-###### config=>index.js中 assetsPublicPath: '/website/'
-###### config=>index.js中 assetsSubDirectory: 'website/static'
-###### config=>index.js中 assetsRoot: path.resolve(__dirname, "../dist")
+###### webpack.base.conf.js 中 publicPath: '/website/'
+###### webpack.prod.conf.js 中 output{publicPath: '/'}
+###### config=>index.js 中 assetsPublicPath: '/website/'
+###### config=>index.js 中 assetsSubDirectory: 'website/static'
+###### config=>index.js 中 assetsRoot: path.resolve(__dirname, "../dist")
