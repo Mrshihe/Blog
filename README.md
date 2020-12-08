@@ -7,3 +7,4 @@
 #### 其他
 
 - [window下安装mysql](https://github.com/Mrshihe/blog/blob/master/markdown/other/mysql安装.md)
+- [vue预渲染](https://github.com/Mrshihe/blog/blob/master/markdown/other/vue预渲染.md)
