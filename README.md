@@ -4,6 +4,9 @@
 
 - [js基础面试题-1](https://github.com/Mrshihe/blog/blob/master/markdown/js/js面试题.md)
 
+#### vue
+- [vue常用小知识](https://github.com/Mrshihe/blog/blob/master/markdown/vue/vue小知识.md)
+
 #### 其他
 
 - [window下安装mysql](https://github.com/Mrshihe/blog/blob/master/markdown/other/mysql安装.md)
