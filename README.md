@@ -10,6 +10,6 @@
 - [vue常用小知识](https://github.com/Mrshihe/blog/blob/master/markdown/vue/vue小知识.md)
 
 #### 其他
-
+- [nginx入门](https://github.com/Mrshihe/blog/blob/master/markdown/other/nginx入门.md)
 - [window下安装mysql](https://github.com/Mrshihe/blog/blob/master/markdown/other/mysql安装.md)
 - [vue预渲染](https://github.com/Mrshihe/blog/blob/master/markdown/other/vue预渲染.md)

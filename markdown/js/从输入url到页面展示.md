@@ -41,3 +41,45 @@ HTTP/1.0中定义了三种GET、POST、HEAD　HTTP/1.1中新增了五种OPTIONS�
 6. DELETE 用来删除文件，本身不具有验证机制
 7. TRACE 让服务器端将之前的请求通信环回给客户端的方法，查询发送出去的请求是怎样被加工修改/篡改的
 8. CONNECT 要求在与代理服务器通信时建立隧道，实现用隧道协议进行TCP通信。主要使用SSL（Secure Sockets Layer，安全套接层）和TLS（TransportLayer Security，传输层安全）协议把通信内容加密后经网络隧道传输
+
+#### HTTP响应
+HTTP响应包含状态行、响应头、请求头
+- ##### 状态码
+> 1xx: // 请求已被接受，需要继续处理
+> 2xx: // 请求已成功被服务器接收、理解、并接受
+> 3xx: // 重定向-客户端采取进一步的操作才能完成请求, 后续的请求地址（重定向目标）在本次响应的Location域中指明
+>   301: 永久重定向
+>   302: 临时重定向
+> 4xx: // 客户端错误-请求有语法错误或请求无法实现
+>   400: // 请求报文中存在语法错误
+>   403: // 服务器拒绝该次访问
+>   404: // 无法找到请求的资源
+> 5xx: // 服务端错误
+>   500: // 内部服务器错误
+>   502: // 网关错误
+
+#### 浏览器解析渲染页面
+##### 浏览器渲染大致分为以下几步：
+1. 解析HTML，构建DOM树
+2. 解析CSS，生成CSS规则树
+3. 合并DOM树和CSS规则，生成render树
+4. 布局render树（Layout/reflow），负责各元素尺寸、位置的计算 <不可见的标签(head)或者display:none的元素不会插入render树中>
+5. 绘制render树（paint），绘制页面像素信息
+6. 发送给GPU，GPU会将各层合成（composite），显示在屏幕上
+
+元素的内容、结构、位置或尺寸发生了变化，需要重新计算样式和渲染树，称为回流( Layout/reflow )，元素样式的改变（例如，背景色，边框颜色，文字颜色等）称为重绘。
+#### 引发回流的情况
+```
+offset(Top/Left/Width/Height)\scroll(Top/Left/Width/Height)\cilent(Top/Left/Width/Height)\width,heigh\getComputedStyle()
+```
+避免DOM回流
+①分离读写操作( 现代浏览器都有渲染队列机制，读取样式会打断渲染队列 )  
+②样式集中改变  xxx.style.cssText / xxx.className
+③元素批量处理  document.createDocumentFragment 使用完释放 / 字符串拼接
+④css3硬件加速  transfrom开启硬件加速，不会引发回流和重绘
+⑤动画效果应用到position属性为absolute或fixed的元素上（脱离文档流）
+#### 引发重绘的情况
+```
+background/color/border-color
+```
+### 回流一定引发重绘，重绘不一定引发回流
