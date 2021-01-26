@@ -82,4 +82,11 @@ offset(Top/Left/Width/Height)\scroll(Top/Left/Width/Height)\cilent(Top/Left/Widt
 ```
 background/color/border-color
 ```
-### 回流一定引发重绘，重绘不一定引发回流
+##### 回流一定引发重绘，重绘不一定引发回流
+
+#### TCP断开连接
+1. 客服端发送Fin、Seq
+2. 服务端发送Ack、Seq
+3. 服务端发送Fin、Ack、Seq
+4. 客户端发送Ack、Seq
+
