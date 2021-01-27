@@ -28,11 +28,11 @@ TCP进行三次握手，三次握手的目的：《计算机网络》第四版�
 ```
 序号(sequence number): seq 标识从TCP源端向目的端发送的字节流
 确认号(acknowledgement number): ack Ack=Seq+1
-标志位(Flags): ACK=1有效应答 / SYN 发起新连接 / FIN 释放连接  
+标志位(Flags): ACK 确认标志 ACK=1确认有效 / SYN 发起新连接 / FIN 释放连接  
 ```
 1. 第一次握手，浏览器发起 SYN=1,seq=x 然后进入SYN_SEND状态，等待服务器确认。
 2. 第二次握手，服务器发起 SYN=1,ACK=1(应答有效),ack=x+1(对浏览器报文进行确认),seq=y 然受进入SYN_RECV状态。
-3. 第三次握手，浏览器发起 ACK=1(应答有效), ack=y+1 双方进入ESTABLISHED状态。
+3. 第三次握手，浏览器发起 ACK=1(应答有效), ack=y+1, seq=x+1 双方进入ESTABLISHED状态。
 
 #### HTTP请求
 HTTP请求包含请求行、请求头、请求体三个主要部分
@@ -90,8 +90,8 @@ background/color/border-color
 ##### 回流一定引发重绘，重绘不一定引发回流
 
 #### TCP断开连接
-1. 客服端发送Fin、Seq
-2. 服务端发送Ack、Seq
-3. 服务端发送Fin、Ack、Seq
-4. 客户端发送Ack、Seq
+1. 客服端发送FIN=1,seq=x,然后进入FIN-WAIT-1状态。
+2. 服务端进入CLOSE-WAIT状态，发送ACK=1,ack=x+1,seq=y, 客户端进入FIN-WAIT-2状态。
+3. 服务端发送FIN=1,ACK=1,ack=x+1,seq=z，服务端进入LAST-ACK状态。
+4. 客户端发送ACK=1,ack=z+1,seq=x+1，客户端进入TIME-WAIT状态。
 
