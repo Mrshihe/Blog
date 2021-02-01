@@ -1,10 +1,10 @@
 #### HTTP(Hyper Text Transfer Protocol)超文本传输协议，无状态的应用层的协议。端口默认 80
 #### HTTP缺点
-1. 请求信息明文传输,不安全
-2. 数据的完整性未校验
-3. 没有验证对方身份
+1. 通信使用明文（不加密），内容可能会被窃听
+2. 无法证明报文的完整性，所以有可能已遭篡改
+3. 不验证通信方的身份，因此有可能遭遇伪装（中间人攻击 Man-in-the-Middle attack MITM）
 
-#### HTTPS = HTTP + SSL/TLS 端口默认 443
+#### HTTPS = HTTP + SSL(Secure Socket Layer，安全套接层)/TLS(Transport Layer Security，安全传输层协议) 端口默认 443
 HTTPS主要特点：
 1. 内容加密
 2. 身份认证
