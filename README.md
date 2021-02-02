@@ -13,3 +13,4 @@
 - [nginx入门](https://github.com/Mrshihe/blog/blob/master/markdown/other/nginx入门.md)
 - [window下安装mysql](https://github.com/Mrshihe/blog/blob/master/markdown/other/mysql安装.md)
 - [vue预渲染](https://github.com/Mrshihe/blog/blob/master/markdown/other/vue预渲染.md)
+- [图片懒加载](https://github.com/Mrshihe/blog/blob/master/markdown/other/图片懒加载.md)
