@@ -27,3 +27,22 @@ Object.prototype.__proto__ === null // true
 
 > Object.getPrototypeOf() 方法返回指定对象的原型
 > hasOwnProperty() 返回布尔值,判断某个对象是否含有指定的属性,该方法会忽略掉那些从原型链上继承到的属性
+
+#### instanceof 判断对象是否为某一类型实例， 检测构造函数的prototype属性是否出现在某个实例对象的原型链上
+```
+cat instanceof Animal // true  cat.__proto__ === Animal.prototype
+
+function myInstanceOf(L,R) {
+  const RP = R.prototype
+  L = L.__proto__
+  while(true){ 
+    if( L===null ){
+      return false
+    }
+    if( L===RP ){
+      return true
+    }
+    L = L.__proto__ //没找到继续向上查找
+  }
+}
+```
