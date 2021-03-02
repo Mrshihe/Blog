@@ -3,7 +3,7 @@
 Function.prototype.myCall = function (context,...params){
   let key = Symbol('key'), // 唯一值避免冲突
             result;
-  context = context || window // context为传入参数
+  context = Object(context) || window // context为传入参数
   context[key] = this // 调用的函数
   result = context[key](...params)
   delete context[key]
@@ -14,7 +14,7 @@ Function.prototype.myCall = function (context,...params){
 ```
 Function.prototype.myApply = function(context,params){
   let key = Symbol('key'),result;
-  context = context || window
+  context = Object(context) || window
   context[key] = this
   result = context[key](...params)
   delete context[key]
