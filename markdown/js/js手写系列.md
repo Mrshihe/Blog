@@ -9,6 +9,19 @@ Function.prototype.myCall = function (context,...params){
   delete context[key]
   return result
 }
+// ES5 由于无法通过解构的形式传入参数，通过字符串拼接然后再通过eval来执行或者new Function()
+Function.prototype.mycall = function(context){
+  context = context || window
+  var args = []
+  for(var i=0; i<arguments.length; i++){
+    args.push('arguments[' + i + ']')
+  }
+  var argstr = args.join(',')
+  context.fn = this
+  var res =  eval('context.fn(' + argstr + ')')
+  delete context.fn
+  return res
+}
 ```
 #### 自定义apply
 ```
