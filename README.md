@@ -15,3 +15,4 @@
 - [window下安装mysql](https://github.com/Mrshihe/blog/blob/master/markdown/other/mysql安装.md)
 - [vue预渲染](https://github.com/Mrshihe/blog/blob/master/markdown/vue/vue预渲染.md)
 - [图片懒加载](https://github.com/Mrshihe/blog/blob/master/markdown/other/图片懒加载.md)
+- [http缓存](https://github.com/Mrshihe/blog/blob/master/markdown/other/http缓存.md)
