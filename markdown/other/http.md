@@ -1,3 +1,34 @@
+#### HTTP常用请求头字段
+```
+Host: www.baidu.com
+客户端请求的资源所处的主机名和端口号
+Referer: https://www.baidu.com/s?ie=UTF-8&wd=%E5%
+客户端请求的原始资源的URI
+Cookie: BIDUPSID=0FA3B0B34EA21368F4EC83116E240288;
+服务器设置得Cookie信息
+Accept: application/json, text/javascript, */*; q=0.01
+客户端能够处理的媒体类型及媒体类型的相对优先级;优先级用q=表示,范围0~1,可精确到小数点后3位,默认为最大值1
+Accept-Encoding: gzip, deflate
+客户端支持的内容编码及内容编码的优先级顺序(采用权重q值来表示相对优先级)
+Accept-Language: zh-CN,zh;q=0.9
+客户端能够处理的自然语言集
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36
+客户端使用的操作系统和浏览器的名称和版本
+
+```
+#### HTTP常用响应头字段
+```
+Allow：GET, POST
+服务器支持哪些请求方法
+Content-Encoding: gzip
+服务器对实体的主体部分选用的内容编码方式
+Content-Length: 78
+实体主体部分的大小(单位是字节)
+Set-Cookie: PSINO=2; domain=.baidu.com; path=/
+服务器端设置Cookie
+```
+
+
 ### HTTP缓存，分为强缓存、协商缓存两种
 加快资源获取速度, 减少网络传输, 缓解服务端压力
 
