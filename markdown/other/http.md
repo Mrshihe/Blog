@@ -18,14 +18,18 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 ```
 #### HTTP常用响应头字段
 ```
+Date: Tue, 09 Mar 2019 08:30:14 GMT
+响应的时间
 Allow：GET, POST
 服务器支持哪些请求方法
 Content-Encoding: gzip
 服务器对实体的主体部分选用的内容编码方式
 Content-Length: 78
-实体主体部分的大小(单位是字节)
+响应体部分的大小(单位是字节)
 Set-Cookie: PSINO=2; domain=.baidu.com; path=/
 服务器端设置Cookie
+Access-Control-Allow-Origin: * 
+指定哪些站点可以参与跨站资源共享
 ```
 
 
