@@ -46,9 +46,9 @@ Function.prototype.myBind = function(context,...params){
 #### 自定义操作符new
 new关键字执行过程(MDN)：
 1.创建一个空的简单JavaScript对象（即{}）；
-2.链接该对象（设置该对象的constructor）到另一个对象；
+2.将空对象的原型赋值为构造器函数的原型；
 3.将步骤1新创建的对象作为this的上下文；
-4.如果该函数没有返回对象，则返回this
+4.如果该函数没有返回对象，则返回新创建的对象；
 ```
 function _new(fn,...args) { 
   const obj = Object.create(fn.prototype)
