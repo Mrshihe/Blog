@@ -36,6 +36,7 @@ cat1即是Cat实例，也是Animal实例
 1. 不能向父类构造函数中传参数
 2. 父类中的引用类型会被所有子类实例共享，一个子类改变则所有子类改变,无法实现多继承
 3. 新增原型属性和方法必须在 Cat.prototype = new Animal() 之后
+4. Cat不是Animal的实例
 
 
 ### 2.原型式继承
@@ -60,7 +61,9 @@ propertiesObject<可选,对象的属性类型参照Object.defineProperties()的�
 ### 3.构造继承(盗用构造函数)
 ```
 function Cat(name,color) {
+  // 子类型的构造函数内部调用父类型构造函数 
   Animal.call(this,name)
+  // 保证父类的构造函数不会重写子类的属性，需要在调用父类构造函数后，定义子类的属性
   this.color = color
 }
 const cat1 = new Cat('小猫','blue')
@@ -73,6 +76,7 @@ cat1只是Cat实例，不是Animal实例
 #### 缺点
 1. 不能继承父类原型的属性和方法
 2. 方法都在父类构造函数中定义，无法复用
+3. cat1只是Cat的实例，不是Animal的实例
 
 
 ### 4.组合继承(构造函数+原型链)
