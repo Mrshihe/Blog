@@ -1,9 +1,16 @@
 ### HTTP缓存，分为强缓存、协商缓存两种
 加快资源获取速度, 减少网络传输, 缓解服务端压力
 
+### 浏览器缓存位置
+Service Worker 独立线程，一般可以用来实现缓存功能，使用 Service Worker的话，传输协议必须为HTTPS。
+Memory Cache 内存中的缓存，关闭Tab页面，内存中的缓存被释放
+Disk Cache 硬盘中的缓存，读取速度较慢，
+Push Cache HTTP/2定义，只在会话Session中存在，一旦会话结束就被释放
+
+
 #### 强缓存
-强缓存由Expires、Cache-Control 、Pragma3个Header属性共同控制
-1. Expires:值为一个HTTP日期(优先级最低)
+强缓存由Expires、Cache-Control 、Pragma3个响应头控制
+1. Expires: 值为时间戳，表示请求结果缓存的到期时间(优先级最低)
 浏览器发起请求时，根据系统时间和Expires进行比较，如果系统时间超过Expires，缓存失效。（当系统时间和服务器时间不一致的时候，会有缓存有效期不准的问题)
 
 2. Cache-Control:(HTTP/1.1新增)
@@ -12,7 +19,7 @@
 max-age: 单位秒，缓存时间是距离发起的时间的秒数，超过间隔的秒数缓存失效
 no-cache：不使用强缓存
 no-store：禁止使用缓存(包括协商缓存)
-private：专用于个人的缓存，中间代理、CDN 等不能缓存此响应
+private：资源只有客户端可以缓存，专用于个人的缓存，中间代理、CDN 等不能缓存此响应
 public：响应可以被中间代理、CDN 等缓存
 must-revalidate：在缓存过期前可以使用，过期后必须向服务器验证
 ```
