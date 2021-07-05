@@ -95,3 +95,4 @@ background/color/border-color
 3. 服务端发送FIN=1,ACK=1,ack=x+1,seq=z，服务端进入LAST-ACK状态。
 4. 客户端发送ACK=1,ack=z+1,seq=x+1，客户端进入TIME-WAIT状态。
 
+###### 客户端发出确认报文后不是立马释放TCP连接，而是要经过2MSL(最长报文段寿命的2倍时长)后才释放TCP连接，而服务端一旦收到客户端发出的确认报文就会立马释放TCP连接
