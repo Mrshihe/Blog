@@ -56,3 +56,20 @@ function _new(fn,...args) {
   return typeof result === 'object' ? result : obj
 }
 ```
+#### 自定义instanceof
+语法：(object) instanceof (constructor)
+检测constructor.prototype是否存在于参数object的原型链上
+```
+function myInstanceof(left,right) {
+  let L = left.__proto__, RP = right.prototype
+  while(true){
+    if( L === null ){
+      return false
+    }
+    if( L === RP ){
+      return true
+    }
+    L = L.__proto__
+  }
+}
+```
