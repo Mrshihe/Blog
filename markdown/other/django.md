@@ -9,3 +9,25 @@
 - ##### 虚拟环境中安装django
 - ##### django创建项目
 ### 执行python manage.py 命令需注意文件位置
+
+#### vscode安装django插件后继续保持html语法提示
+- ##### 打开设置，右上角"打开设置(json)"
+```
+"files.associations": {
+  "**/*.html": "html",
+  "**/templates/**/*.html": "django-html",
+},
+"emmet.includeLanguages": {
+  "django-html": "html"
+},
+```
+
+#### pip windows镜像设置
+- ##### C:\Users\用户目录下，新建pip文件夹
+- ##### pip文件夹下新建pip.ini,输入如下代码
+```
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host = https://pypi.tuna.tsinghua.edu.cn
+```
