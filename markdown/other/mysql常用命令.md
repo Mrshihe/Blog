@@ -5,4 +5,33 @@
 - status; 查看当前数据库信息
 - drop database [数据库名]; 删除数据库
 - show tables; 查看数据库内数据表
-- drop table [数据库名]; 删除数据库表
+- desc [数据表信息]; 查看数据表信息
+- show create table [数据表名] \G; 查看数据表信息 含字符集等信息 \G 可选, 按照字段竖着排列
+- drop table [数据库名]; 删除数据表
+- alter table [数据表名] rename [新数据表名]; 修改数据表名
+- alter table [数据表名] modify [字段名] [修改结构] [?first|after 字段名]; 修改数据表结构
+- alter table [数据表名] add column [字段名] [字段类型] [?first|after 字段名]; 添加数据表字段
+- alter table [数据表名] drop column [字段名]; 删除数据表字段
+```
+[?first|after 字段名] 可选参数, 决定位置最前 | 指定字段后
+```
+- alter table [数据表名] change [旧字段名] [新字段名] [字段类型]; 修改数据表字段名称
+
+#### DML操作(指对数据库中表记录的操作: 插入 insert、更新 update、删除 delete、查询 select )
+- insert into [数据表名] (field1,...fieldn) values (value1,..valuen),(value1,...valuen); 向数据表中插入数据,可同时插入多个 字段名(field)可忽略但values顺序应和字段排列顺序一致
+- update [数据表名] set field1=value1, ...fieldn=valuen where [查询条件]; 根据条件更新数据表中字段
+- update [数据表名1] [?别名1], [数据表名2] [?别名2] set [数据表1].[字段名1]=[值], [数据表2][字段名1]=[值] where [查询条件];
+更新多个数据表字段
+- delete from [数据表名] where [查询条件]; 删除指定记录
+- select * from [数据表名]; 查询表中所有内容
+- select field1,...fieldn from [数据表名]; 查询指定字段
+- select distinct [字段名] from [数据表名]; 查询指定字段并且去重
+```
+查询常用条件
+order by 排序 desc 降序排列 asc 升序排列 默认 acs;
+select * from [数据表名] order by [字段名] [?desc|acs]
+select * from [数据表名] order by [字段名] , [字段名] desc;
+
+limit [offset_start, row_count] 显示部分数据, offset_start 起始位置 默认为0 row_count 要显示行数
+select * from [数据表名] where [查询条件] limit 3;
+```
