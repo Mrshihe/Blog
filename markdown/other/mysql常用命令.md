@@ -60,3 +60,22 @@ between 指定两个值之间  between 5 and 10 包含指定的开始值和结�
 
 ```
 - select * from [数据表名] where [字段名] is null; 是否为空值
+##### 通配符查询
+- select * from [数据表名] where [字段名] like '%[查询]%'; %表示任何字符出现任意次数，但是不能匹配null值
+- select * from [数据表名] where [字段名] like '_[查询]'; _只能匹配一个字符
+##### 正则表达式匹配
+- select * from [数据表名] where [字段名] REGEXP '[正则表达式]';
+```
+binary 区分大小写
+select * from [数据表名] where [字段名] regexp binary '[正则表达式]';
+特殊字符匹配,mysql中需要使用 \\ 双反斜杠
+```
+##### 计算字段
+- select concat(filed1,filed2,...filedn) from [数据表名]; 拼接字符串
+- select concat(filed1,...filedn) as [新字段名] from [数据表名]; as 用来指定别名
+```
+concat 用来拼接字符串, 指定一个或多个值, 用逗号分隔
+RTrim() 去掉右边空格 LTrim() 去掉左边空格 Trim()去掉两边空格
+
+算数计算  + - * /
+```
