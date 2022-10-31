@@ -5,6 +5,7 @@
 - status; 查看当前数据库信息
 - drop database [数据库名]; 删除数据库
 - show tables; 查看数据库内数据表
+- show create table [数据表名]; 查看数据表创建语句
 - desc [数据表信息]; 查看数据表信息
 - show create table [数据表名] \G; 查看数据表信息 含字符集等信息 \G 可选, 按照字段竖着排列
 - drop table [数据库名]; 删除数据表
@@ -25,7 +26,7 @@
 - delete from [数据表名] where [查询条件]; 删除指定记录
 - select * from [数据表名]; 查询表中所有内容
 - select field1,...fieldn from [数据表名]; 查询指定字段
-- select distinct [字段名] from [数据表名]; 查询指定字段并且去重
+- select distinct [字段名] from [数据表名]; 查询指定字段并且去重，distinct不能用于部分字段名
 ```
 查询常用条件
 order by 排序 desc 降序排列 asc 升序排列 默认 acs;
@@ -33,5 +34,8 @@ select * from [数据表名] order by [字段名] [?desc|acs]
 select * from [数据表名] order by [字段名] , [字段名] desc;
 
 limit [offset_start, row_count] 显示部分数据, offset_start 起始位置 默认为0 row_count 要显示行数
+以下3句话效果一样：
 select * from [数据表名] where [查询条件] limit 3;
+select * from [数据表名] where [查询条件] limit 0, 3;
+select * from [数据表名] where [查询条件] limit 3 offset 0;
 ```
