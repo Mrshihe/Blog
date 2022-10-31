@@ -95,3 +95,16 @@ MIN 和 MAX 如果数据按相应的列排序, 则分别返回最前面的值和
 
 SUM() 返回某列的和, 忽略值为NUll的行
 ```
+##### 数据分组
+- select * from [数据表名] group by [filed]; 按指定字段分组，通常和聚集函数一起使用
+- select * from [数据表名] group by [filed] having [过滤条件]; 按指定条件过滤分组
+
+```
+group by 可以包含任意数目的列, 数据将在最后规定的分组上进行汇总;
+group by 同聚集函数使用时，不可使用别名
+
+having 对分组进行过滤, 和where同意
+
+举个例子<从订单表中统计每单订单总金额并过滤>=50的订单>：
+select ordernum, sum(number*price) as pricetotal from orderlist group by ordernum having sum(number*price) >= 50 order by pricetotal;
+```
